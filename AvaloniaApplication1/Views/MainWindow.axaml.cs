@@ -31,22 +31,25 @@ public class LinkInfoDialog : ILinkInfo
         }
 
         // Some kind of dialog
-        await new Window().ShowDialog(_ownerWindow);
+        var window = new Window
+        {
+            Width = 300,
+            Height = 300,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner
+        };
+        await window.ShowDialog(_ownerWindow);
     }
 }
 
 public class LinkInfoSmth : ILinkInfo
 {
-    private readonly Window _ownerWindow;
-
-    public LinkInfoSmth(Window ownerWindow)
+    public LinkInfoSmth()
     {
-        _ownerWindow = ownerWindow;
     }
 
     public void Navigate(PointerPressedEventArgs e)
     {
-        // Do smth in non async context
+        // Do smth
     }
 }
 
@@ -60,7 +63,7 @@ public partial class MainWindow : Window
         InitializeComponent();
 
         _linkInfo1 = new LinkInfoDialog(this);
-        _linkInfo2 = new LinkInfoSmth(this);
+        _linkInfo2 = new LinkInfoSmth();
     }
 
     private void Link_OnPointerPressed(object? sender, PointerPressedEventArgs e)

@@ -22,11 +22,13 @@
     <StackPanel Orientation="Vertical" Spacing="5">
         <TextBlock Name="Link1"
                    Text="Link1"
+                   FontSize="30"
                    Classes="hyperLink"
                    PointerPressed="Link_OnPointerPressed" />
 
         <TextBlock Name="Link2"
                    Text="Link2"
+                   FontSize="30"
                    Classes="hyperLink"
                    PointerPressed="Link_OnPointerPressed" />
     </StackPanel>
